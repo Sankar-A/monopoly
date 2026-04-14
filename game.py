@@ -480,6 +480,8 @@ class Game:
         self.doubles_count = 0
 
     def winner(self):
+        if not self.started:
+            return None
         active = [p for p in self.player_order if not self.players[p].bankrupt]
         if len(active) == 1:
             return self.players[active[0]].name
